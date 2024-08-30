@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgtooapt55wim"]
+
+[ext_resource type="Script" path="res://Menus/menus.gd" id="1_2j2ko"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_nfbkv"]
+
+[node name="Player" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2j2ko")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_nfbkv")
