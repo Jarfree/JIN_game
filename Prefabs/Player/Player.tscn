@@ -1,10 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgtooapt55wim"]
+[gd_scene load_steps=6 format=3 uid="uid://dgtooapt55wim"]
 
 [ext_resource type="Script" path="res://Menus/menus.gd" id="1_2j2ko"]
+[ext_resource type="Script" path="res://Prefabs/Player/player.gd" id="1_akg8u"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_nfbkv"]
+[sub_resource type="BoxMesh" id="BoxMesh_udlto"]
+size = Vector3(1, 2, 1)
 
-[node name="Player" type="Node3D"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_i8qoj"]
+albedo_color = Color(0.394591, 0.812463, 0.499896, 1)
+emission = Color(0.43187, 0.881321, 0.291621, 1)
+clearcoat_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qpaku"]
+size = Vector3(1, 2, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_akg8u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996503, 0)
+mesh = SubResource("BoxMesh_udlto")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ORMMaterial3D_i8qoj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998805, 0)
+shape = SubResource("BoxShape3D_qpaku")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -12,6 +33,3 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_2j2ko")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_nfbkv")

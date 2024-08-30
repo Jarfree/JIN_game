@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgy6s3bk0i6y6"]
+
+[ext_resource type="Script" path="res://Prefabs/Enemies/TempEnemy/temp_enemy.gd" id="1_k71q5"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_xak81"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0pao6"]
+albedo_color = Color(0.765972, 0.124824, 0.148567, 1)
+emission_enabled = true
+emission = Color(0.835718, 1.73271e-06, 4.81307e-07, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhli8"]
+
+[node name="TempEnemy" type="Area3D"]
+script = ExtResource("1_k71q5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_xak81")
+surface_material_override/0 = SubResource("ORMMaterial3D_0pao6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yhli8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

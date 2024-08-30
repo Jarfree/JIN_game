@@ -22,7 +22,7 @@ func _input(event):
 			get_tree().paused = true
 
 func _on_button_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/Temp.tscn")
+	get_tree().change_scene_to_file("res://Levels/level_01.tscn")
 
 
 func _on_button_settings_pressed() -> void:

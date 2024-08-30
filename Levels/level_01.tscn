@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://kqskug38541a"]
+
+[ext_resource type="PackedScene" uid="uid://dgtooapt55wim" path="res://Prefabs/Player/Player.tscn" id="1_08ojs"]
+[ext_resource type="PackedScene" uid="uid://cip8vu1321453" path="res://Prefabs/Items/TempHealth/temp_health_potion.tscn" id="2_qjv3o"]
+[ext_resource type="PackedScene" uid="uid://cgy6s3bk0i6y6" path="res://Prefabs/Enemies/TempEnemy/temp_enemy.tscn" id="3_nlgsd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7vtgg"]
+size = Vector3(50, 0.1, 50)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3eme0"]
+albedo_color = Color(0.151568, 0.377335, 0.254638, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehysq"]
+size = Vector3(50, 0.1, 50)
+
+[node name="Level_01" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999964, -0.00760614, 0.00388119, 0.00666058, 0.97918, 0.202886, -0.00534356, -0.202853, 0.979195, 0, 2.65266, 23.9766)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.744466, 0.586642, -0.318781, -0.0117632, 0.488911, 0.872254, 0.667556, -0.645614, 0.370879, 0, 4.18729, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11026, 0.150581, 0.0128555)
+mesh = SubResource("BoxMesh_7vtgg")
+surface_material_override/0 = SubResource("ORMMaterial3D_3eme0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0352135, 0.238598, 0.000860214)
+shape = SubResource("BoxShape3D_ehysq")
+
+[node name="Player" parent="." instance=ExtResource("1_08ojs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04069, 9.43578)
+
+[node name="TempItems" type="Node3D" parent="."]
+
+[node name="TempHealthPotion" parent="TempItems" instance=ExtResource("2_qjv3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2391, 1.39405, 0)
+
+[node name="TempHealthPotion2" parent="TempItems" instance=ExtResource("2_qjv3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82351, 1.31989, 16.7018)
+
+[node name="TempEnemies" type="Node3D" parent="."]
+
+[node name="TempEnemy" parent="TempEnemies" instance=ExtResource("3_nlgsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0313, 0.68559, 0)
+
+[node name="TempEnemy2" parent="TempEnemies" instance=ExtResource("3_nlgsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6822, 0.756382, 9.09945)

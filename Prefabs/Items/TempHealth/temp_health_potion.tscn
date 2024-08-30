@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cip8vu1321453"]
+
+[ext_resource type="Script" path="res://Prefabs/Items/TempHealth/temp_health_potion.gd" id="1_1kg8i"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tjhbn"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_kdpct"]
+albedo_color = Color(0, 0.94684, 0.951632, 1)
+emission_enabled = true
+emission = Color(0, 0.964706, 0.839216, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnq65"]
+size = Vector3(1, 2, 1)
+
+[node name="TempHealthPotion" type="Area3D"]
+script = ExtResource("1_1kg8i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_tjhbn")
+surface_material_override/0 = SubResource("ORMMaterial3D_kdpct")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hnq65")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
