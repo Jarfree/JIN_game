@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3gas1juqklpx"]
 
-[ext_resource type="Script" path="res://Menus/menus.gd" id="1_dli2j"]
+[ext_resource type="Script" path="res://Menus/Start_screen/start_screen.gd" id="1_dli2j"]
 [ext_resource type="Texture2D" uid="uid://msamj8bob5cb" path="res://Assets/UI/Images/Temp_menu_bg.png" id="1_iu56e"]
 
 [node name="StartScreen" type="Control"]

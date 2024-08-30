@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kqskug38541a"]
+[gd_scene load_steps=7 format=3 uid="uid://dlwvlwoo1mudq"]
 
 [ext_resource type="PackedScene" uid="uid://dgtooapt55wim" path="res://Prefabs/Player/Player.tscn" id="1_08ojs"]
 [ext_resource type="PackedScene" uid="uid://cip8vu1321453" path="res://Prefabs/Items/TempHealth/temp_health_potion.tscn" id="2_qjv3o"]

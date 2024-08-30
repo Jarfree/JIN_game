@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgtooapt55wim"]
+[gd_scene load_steps=7 format=3 uid="uid://dgtooapt55wim"]
 
-[ext_resource type="Script" path="res://Menus/menus.gd" id="1_2j2ko"]
 [ext_resource type="Script" path="res://Prefabs/Player/player.gd" id="1_akg8u"]
+[ext_resource type="PackedScene" uid="uid://bc2xr4pbdai6j" path="res://Menus/Pause/Pause.tscn" id="2_8ocrq"]
+[ext_resource type="PackedScene" uid="uid://w5n4ccx3p3k4" path="res://Menus/Game_Over/Game_Over.tscn" id="3_fqq77"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_udlto"]
 size = Vector3(1, 2, 1)
@@ -27,9 +28,6 @@ surface_material_override/0 = SubResource("ORMMaterial3D_i8qoj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998805, 0)
 shape = SubResource("BoxShape3D_qpaku")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_2j2ko")
+[node name="Pause" parent="." instance=ExtResource("2_8ocrq")]
+
+[node name="GameOver" parent="." instance=ExtResource("3_fqq77")]
